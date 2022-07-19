@@ -6,15 +6,15 @@
 {% endblock %}
 
 {% block content %}
-    <div class="bg-black bg-blend-overlay bg-opacity-75"> 
+    <div class="py-10"> 
         <ul>
         {% for item in object_list %}
-            <div>
-                <img src='{{item.thumb.url}}'>
+            <div class="py-8">
                 <ul>
-                    <li>{{item.titulo}}</li>
+                   <a href="{% url 'filme:detalhesfilme' item.id %}"><li>{{item.titulo}}</li></a>
                     <li>{{item.descricao}}</li>
                 </ul>
+                <img src='{{item.thumb.url}}'>
             </div>
         {% endfor %}
         </ul>

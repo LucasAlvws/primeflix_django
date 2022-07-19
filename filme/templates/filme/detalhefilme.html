@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Primeflix - {{object.titulo}}
+{% endblock %}
+
+{% block content %}
+    <div class="py-10">
+        <p>{{object.titulo}}</p>
+        <p>{{object.descricao}}</p>
+        <img src="{{object.thumb.url}}">
+    </div>
+{% endblock %}
