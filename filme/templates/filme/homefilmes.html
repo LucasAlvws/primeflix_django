@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Primeflix - Filmes
+{% endblock %}
+
+{% block content %}
+    <div class="bg-black bg-blend-overlay bg-opacity-75"> 
+        <ul>
+        {% for item in lista_filmes %}
+            <div>
+                <img src='{{item.thumb.url}}'>
+                <ul>
+                    <li>{{item.titulo}}</li>
+                    <li>{{item.descricao}}</li>
+                </ul>
+            </div>
+        {% endfor %}
+        </ul>
+    </div>
+
+
+{% endblock %}
