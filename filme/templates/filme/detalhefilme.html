@@ -6,8 +6,15 @@
 
 {% block content %}
     <div class="py-10">
+        <div class="py-8">
         <p>{{object.titulo}}</p>
         <p>{{object.descricao}}</p>
         <img src="{{object.thumb.url}}">
+        <div class="py-8">
+            {% for ep in object.episodios.all %}
+                <p>{{ep}}</p>
+            {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}
