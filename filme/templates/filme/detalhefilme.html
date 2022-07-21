@@ -10,11 +10,21 @@
         <p>{{object.titulo}}</p>
         <p>{{object.descricao}}</p>
         <img src="{{object.thumb.url}}">
+        <h2>Episódios</h2>
         <div class="py-8">
-            {% for ep in object.episodios.all %}
-                <p>{{ep}}</p>
+            {% for temp in object.get_temp %}
+                <div class="p-8">
+                    <h2>Temporada {{forloop.counter}}:</h2>
+                    {% with t as forloop.counter %}
+                        {% for ep in object.episodios.filter %}
+                            {% if ep.temporada == forloop.parentloop.counter %}
+                                <a href="{{ep.video}}"><p>{{ep}}</p></a>
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                    <hr>
+                </div>
             {% endfor %}
-            </div>
         </div>
     </div>
 {% endblock %}
