@@ -25,3 +25,11 @@ class Homefilmes(ListView):
 class Detalhefilme(DetailView):
     template_name = "filme/detalhefilme.html"
     model = Filme
+
+    def get_context_data(self, **kwargs):
+        context = super(Detalhefilme, self).get_context_data(**kwargs)
+        filmes_rel = Filme.objects.filter(categoria=self.get_object().categoria)
+        filmes_rel = filmes_rel.exclude(titulo=self.get_object().titulo)
+        filmes_rel = filmes_rel.order_by('titulo')[0:6]
+        context['filmes_rel'] = filmes_rel
+        return context
