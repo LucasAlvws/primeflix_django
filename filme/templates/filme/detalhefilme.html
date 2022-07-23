@@ -6,10 +6,19 @@
 {% endblock %}
 
 {% block content %}
+    <main class="bg-primary_black min-h-screen w-full">
+        
+        <p>asd</p>
+
+    </main>
+
+
+
     <div class="py-16">
         <div>
         <p>{{object.titulo}}</p>
         <p>{{object.descricao}}</p>
+        <p>{{object.vizualizacoes}}</p>
         <img src="{{object.thumb.url}}">
         {% if object.episodios.all.count > 0%}
             <h2>Episódios</h2>
@@ -37,4 +46,6 @@
             </a>
         {% endfor %}
     </div>
+
+    
 {% endblock %}

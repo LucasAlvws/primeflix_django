@@ -6,6 +6,9 @@
 {% endblock %}
 
 {% block content %}
+
+
+
     <div class="py-10"> 
         <ul>
         {% for item in object_list %}
@@ -19,6 +22,16 @@
         {% endfor %}
         </ul>
     </div>
-
-
+    <div class="py-10">
+        <h2>Filmes Recentes</h2>
+        {% for i in filmes_recentes%}
+            <p>{{i}}</p>
+        {% endfor %}
+   </div>
+   <div class="py-10">
+    <h2>Filmes em Alta</h2>
+    {% for i in filmes_alta%}
+        <p>{{i}}</p>
+    {% endfor %}
+</div>
 {% endblock %}

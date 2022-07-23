@@ -26,6 +26,14 @@ class Detalhefilme(DetailView):
     template_name = "filme/detalhefilme.html"
     model = Filme
 
+
+    def get(self, request, *args, **kwargs):
+        filme_ = self.get_object()
+        filme_.vizualizacoes += 1
+        filme_.save()
+        return super().get(request, *args, **kwargs)
+
+
     def get_context_data(self, **kwargs):
         context = super(Detalhefilme, self).get_context_data(**kwargs)
         filmes_rel = Filme.objects.filter(categoria=self.get_object().categoria)
