@@ -24,6 +24,11 @@ TEMPORADAS = (
     (9,9),
 )
 
+TIPOS = (
+    ("FILME","Filme"),
+    ("SERIE","Série"),
+)
+
 class Filme(models.Model):
     titulo = models.CharField(max_length=100)
     descricao = models.TextField(max_length=4000)
@@ -31,6 +36,7 @@ class Filme(models.Model):
     vizualizacoes = models.IntegerField(default=0)
     data_criacao = models.DateTimeField(default=timezone.now)
     thumb = models.ImageField(upload_to='thumb_filmes')
+    tipo = models.CharField(max_length=30, choices=TIPOS,default="#")
 
     def __str__(self):
         return self.titulo

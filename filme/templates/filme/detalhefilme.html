@@ -38,37 +38,25 @@
                     </p>
                 </div>
                 <div style='margin-top:2rem;margin-bottom:2rem;'>
+                    {% if object.tipo == 'FILME' %}
                     <h2 class="text-gray-200 text-2xl font-medium">
-                        Episódios
-                    
+                        Filme
+                        {{object.tipo}}
                     </h2>
-                    {% if object.episodios.all.count > 0%}
                         <h3 class='text-base'>
-                            <a href="#">
-                            Episódio
+                            <a href="{{object.episodios.first.video}}">
+                            {{object.episodios.first.titulo}}
                             </a>
                         </h3>
-                    {% endif %}    
-                </div>
-            </div>
-        </section>    
-        
-
-    </main>
-
-
-
-    <div class="py-16">
-        <div>
-        <p>{{object.titulo}}</p>
-        <p>{{object.descricao}}</p>
-        <p>{{object.vizualizacoes}}</p>
-        <img src="{{object.thumb.url}}">
-        {% if object.episodios.all.count > 0%}
-            <h2>Episódios</h2>
-            <div class="py-6">
-                {% for temp in object.get_temp %}
-                    <div>
+                    {% endif %}   
+                    {% if object.tipo == 'SERIE' %}
+                    <h2 class="text-gray-200 text-2xl font-medium">
+                        Episódios
+                        {{object.tipo}}
+                    </h2>
+                        <h3 class='text-base'>
+                            {% for temp in object.get_temp %}
+                    <div class="py-2">
                         <h2>Temporada {{forloop.counter}}:</h2>
                         {% with t as forloop.counter %}
                             {% for ep in object.episodios.filter %}
@@ -80,16 +68,10 @@
                         <hr>
                     </div>
                 {% endfor %}
-        {% endif %}
-        </div>
-    </div>
-    <div class="py-6">
-        {% for i in filmes_rel %}
-            <a href={% url 'filme:detalhesfilme' i.id %}>
-                <p>{{i}}</p>
-            </a>
-        {% endfor %}
-    </div>
-
-    
+                        </h3>
+                    {% endif %}    
+                </div>
+            </div>
+        </section>    
+    </main>
 {% endblock %}
