@@ -6,8 +6,36 @@
 {% endblock %}
 
 {% block content %}
+    <main class="bg-primary_black min-h-screen w-full">
+        <section class="border-red-700 border-b-2 border-opacity-75 h-screen relative bg-no-repeat pb-8 pl-6 flex items-end bg-cover bg-black bg-blend-overlay bg-opacity-25" style="background-image: url('{{filmes_alta.first.thumb.url}}');">
+            <div>
+                <h2 class="text-6xl font-semibold text-white my-4">
+                    {{filmes_alta.first.titulo}}
+                </h2>
+                <p class=" w-11/12 md:w-5/12 font-medium text-white my-4">
+                    {{filmes_alta.first.descricao|slice:":110"}}...
+                </p>
+                <div class="flex my-4">
+                    <a href="{% url 'filme:detalhesfilme' filmes_alta.first.id %}">
+                        <button class="flex items-center bg-white py-2 px-5 rounded-md" style='color:black;'>
+                            <ion-icon name="play" class="text-2xl"></ion-icon>
+                            <span class="ml-3 font-medium">
+                                Preview
+                            </span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-
+        <section class="bg-primary_black flex justify-center py-10">
+            <div class="p-8 w-10/12 relative">
+                <h2 class="text-gray-200 text-2xl font-medium">
+                    Novo
+                </h2>
+            </div>
+        </section>
+    </main>
 
     <div class="py-10"> 
         <ul>
