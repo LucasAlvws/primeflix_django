@@ -2,8 +2,11 @@ from multiprocessing import context
 from django.shortcuts import render
 from .models import *
 from django.views.generic import TemplateView, CreateView, ListView, DetailView
+from django.http import Http404
 # Create your views here.
 
+def teste(request):
+    return render(request, 'filme/teste.html')
 
 class Homepage(TemplateView):
     template_name = "filme/homepage.html"
@@ -40,4 +43,7 @@ class Detalhefilme(DetailView):
         filmes_rel = filmes_rel.exclude(titulo=self.get_object().titulo)
         filmes_rel = filmes_rel.order_by('titulo')[0:6]
         context['filmes_rel'] = filmes_rel
+        horse = Filme.objects.get(pk = self.kwargs['pk'])
+        if not horse:
+            raise Http404
         return context
