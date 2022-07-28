@@ -11,5 +11,4 @@ def contextos(request):
     filmes_emalta = Filme.objects.all().order_by('-vizualizacoes')
     contexto['filmes_alta'] = filmes_emalta
 
-
     return contexto

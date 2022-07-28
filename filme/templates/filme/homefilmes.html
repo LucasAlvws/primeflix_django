@@ -33,9 +33,34 @@
                 <h2 class="text-gray-200 text-2xl font-medium">
                     Novo
                 </h2>
+                <div class="wrapper">
+                    <section id="section1" class="flex flex-nowrap items-center justify-center space-x-8">
+                    <a href="#section2" class="arrow__btn text-6xl page"> ‹ </a>
+                        {% for filme in filmes_alta %}
+                            <div class="item h-64 w-1/4 m-4">
+                                <a href="#">
+                                <img src="{{filme.thumb.url}}" class="rounded-md w-full h-full object-cover">
+                                </a>
+                            </div>
+                        {% endfor %}
+                    <a href="#section2" class="arrow__btn text-6xl"> › </a>
+                    </section>
+
+                    <section id="section2" class="flex flex-nowrap items-center justify-center">
+                        <a href="#section1" class="arrow__btn text-6xl">‹</a>
+                          <div class="item h-64 w-1/4 m-4">
+                              <a href="#">
+                                <img src="#" class="rounded-md w-full h-full object-cover">
+                              </a>
+                          </div>
+                        <a href="#section1" class="arrow__btn text-6xl">›</a>
+                      </section>
+                  </div>
             </div>
         </section>
     </main>
+
+
 
     <div class="py-10"> 
         <ul>
