@@ -79,7 +79,7 @@
                 </h2>
                 <div class="flex flex-wrap items-center min-w-full movie_lis">
                     {% for item in filmes_rel %}
-                        {% if forloop.counter < 3 %}
+                        {% if forloop.counter < 4 %}
                         <div class="m-4 bg-blue-500 overflow-hidden flex-shrink-0 rounded-md cursor-pointer h-64 w-96 border-2 ">
                             <a href="{% url 'filme:detalhesfilme' item.pk %}">
                                 <img src="{{item.thumb.url}}" class="object-cover w-full h-full " alt="">

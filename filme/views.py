@@ -41,7 +41,7 @@ class Detalhefilme(DetailView):
         context = super(Detalhefilme, self).get_context_data(**kwargs)
         filmes_rel = Filme.objects.filter(categoria=self.get_object().categoria)
         filmes_rel = filmes_rel.exclude(titulo=self.get_object().titulo)
-        filmes_rel = filmes_rel.order_by('titulo')[0:6]
+        filmes_rel = filmes_rel.order_by('titulo')[:6]
         context['filmes_rel'] = filmes_rel
         horse = Filme.objects.get(pk = self.kwargs['pk'])
         if not horse:
